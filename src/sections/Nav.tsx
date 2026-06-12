@@ -55,7 +55,10 @@ export function Nav() {
         </nav>
 
         {/* Desktop CTA */}
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-3 lg:flex">
+          <ButtonLink to="https://constructo-topaz.vercel.app" size="sm" variant="secondary" target="_blank" rel="noopener noreferrer">
+            Log in
+          </ButtonLink>
           <ButtonLink to="/#book-demo" size="sm" variant="primary">
             Book a demo
           </ButtonLink>
@@ -95,7 +98,10 @@ export function Nav() {
                   </li>
                 ))}
               </ul>
-              <ButtonLink to="/#book-demo" size="md" variant="primary" className="mt-4 w-full" onClick={close}>
+              <ButtonLink to="https://constructo-topaz.vercel.app/login" size="md" variant="secondary" className="mt-4 w-full" target="_blank" rel="noopener noreferrer">
+                Log in
+              </ButtonLink>
+              <ButtonLink to="/#book-demo" size="md" variant="primary" className="mt-2 w-full" onClick={close}>
                 Book a demo
               </ButtonLink>
             </Container>

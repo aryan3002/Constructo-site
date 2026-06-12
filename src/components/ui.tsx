@@ -64,10 +64,10 @@ type ButtonLinkProps = {
   className?: string
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href">
 
-/** Button-styled link. Uses <a> for same-page hash anchors, <Link> for routes. */
+/** Button-styled link. Uses <a> for hash anchors and external URLs, <Link> for internal routes. */
 export function ButtonLink({ to, variant = "primary", size = "md", children, className = "", ...rest }: ButtonLinkProps) {
   const cls = `${btnBase} ${btnVariants[variant]} ${btnSizes[size]} ${className}`
-  if (to.startsWith("#")) {
+  if (to.startsWith("#") || to.startsWith("http")) {
     return (
       <a href={to} className={cls} {...rest}>
         {children}
