@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Neev palette: blueprint warmth + calm daylight ---- */
+  --color-canvas: #f3efe6; /* warm paper */
+  --color-sand: #efeadf; /* deeper sand, section alternation */
+  --color-card: #faf7f0; /* card surface, lifted off canvas; never pure white */
+  --color-ink: #1b1916;
+  --color-ink-soft: #3d3933;
+  --color-muted: #6b6459;
+  --color-faint: #a39b8d;
+
+  --color-marigold: #f0a21f;
+  --color-marigold-press: #d6850c;
+  --color-marigold-tint: #fbeed3;
+
+  --color-sage: #3e7a66;
+  --color-sage-press: #2e5c4d;
+  --color-sage-tint: #e3ece7;
+
+  --color-ok: #2f7d52;
+  --color-warn: #c77a12;
+  --color-risk: #b23a2e;
+  --color-info: #3a6491;
+  --color-ok-tint: #e0ece4;
+  --color-warn-tint: #f7e9d4;
+  --color-risk-tint: #f3e0dd;
+  --color-info-tint: #e0e8f0;
+
+  /* hairline rules on warm paper */
+  --color-line: #ddd5c6;
+  --color-line-strong: #c9bfa9;
+
+  /* ---- Type ---- */
+  --font-display: "Bricolage Grotesque", "Mukta", sans-serif;
+  --font-sans: "Mukta", "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "Spline Sans Mono", monospace;
+
+  /* ---- Shape ---- */
+  --radius-card: 14px;
+  --radius-tile: 10px;
+  --radius-frame: 18px;
+
+  /* ---- Shadow: soft and warm, never grey-blue ---- */
+  --shadow-card: 0 1px 2px rgba(27, 25, 22, 0.05), 0 6px 24px rgba(27, 25, 22, 0.07);
+  --shadow-lift: 0 2px 4px rgba(27, 25, 22, 0.06), 0 16px 48px rgba(27, 25, 22, 0.12);
+  --shadow-press: inset 0 1px 2px rgba(27, 25, 22, 0.12);
+
+  /* ---- Motion ---- */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-rise: rise 0.7s var(--ease-out-soft) both;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    font-size: 17px;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-marigold);
+    color: var(--color-ink);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-sage);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Subtle paper grain laid over the whole page */
+  .grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Faint blueprint grid for hero / diagram backdrops */
+  .blueprint-grid {
+    background-image:
+      linear-gradient(to right, rgba(62, 122, 102, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(62, 122, 102, 0.07) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Ledger card with a folded corner: the register motif */
+  .folded-card {
+    position: relative;
+    background: var(--color-card);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 0 100%);
+  }
+  .folded-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 26px;
+    height: 26px;
+    background: var(--color-sand);
+    border-left: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    border-bottom-left-radius: 8px;
+  }
+
+  /* Stamped-record chip: rubber-stamp feel for committed entries */
+  .stamp {
+    @apply font-mono uppercase;
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    padding: 0.2rem 0.55rem;
+    border: 1.5px solid currentColor;
+    border-radius: 4px;
+    transform: rotate(-1.5deg);
+    display: inline-block;
+    line-height: 1.4;
+  }
+
+  /* Horizontal hairline that fades at the edges */
+  .rule-fade {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-line-strong) 18%,
+      var(--color-line-strong) 82%,
+      transparent
+    );
+  }
+
+  /* Dashed "awaiting confirmation" outline for AI-proposed (uncommitted) items */
+  .proposed {
+    border: 1.5px dashed var(--color-line-strong);
+    border-radius: var(--radius-tile);
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
