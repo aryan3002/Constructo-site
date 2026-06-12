@@ -11,6 +11,7 @@ import { SurveyCallout } from "../sections/SurveyCallout"
 import { Personas } from "../sections/Personas"
 import { PricingSection } from "../sections/PricingSection"
 import { Faq } from "../sections/Faq"
+import { MobileApp } from "../sections/MobileApp"
 import { FinalCta } from "../sections/FinalCta"
 
 export function Home() {
@@ -29,6 +30,7 @@ export function Home() {
       <Personas />
       <PricingSection />
       <Faq />
+      <MobileApp />
       <FinalCta />
     </>
   )

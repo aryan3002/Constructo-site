@@ -12,11 +12,13 @@ export function Container({ children, className = "" }: { children: ReactNode; c
 
 export function NeevMark({ size = 28 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-      <rect width="32" height="32" rx="7" fill="var(--color-ink)" />
-      <rect x="7" y="8" width="18" height="4" rx="1.5" fill="var(--color-canvas)" opacity="0.5" />
-      <rect x="7" y="14" width="18" height="4" rx="1.5" fill="var(--color-canvas)" opacity="0.75" />
-      <rect x="7" y="20" width="18" height="4" rx="1.5" fill="var(--color-marigold)" />
+    <svg width={size} height={size} viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+      <rect width="96" height="96" rx="21.5" fill="var(--color-ink)" />
+      <g transform="translate(19.2,19.2) scale(0.576)">
+        <circle cx="50" cy="28" r="5.5" fill="var(--color-marigold)" />
+        <path d="M29 67 L50 45 L71 67" fill="none" stroke="var(--color-marigold)" strokeWidth="8.5" strokeLinecap="round" strokeLinejoin="round" />
+        <rect x="24" y="74" width="52" height="8" rx="4" fill="var(--color-marigold)" />
+      </g>
     </svg>
   )
 }
