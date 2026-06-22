@@ -54,6 +54,15 @@ export function Nav() {
 
         {/* Desktop CTA */}
         <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href="https://www.convoaiservices.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden items-center gap-1 text-[0.85rem] font-medium text-ink-soft transition-colors duration-150 hover:text-ink lg:inline-flex"
+          >
+            Part of Convo
+            <span aria-hidden="true">↗</span>
+          </a>
           <ButtonLink to="https://constructo-topaz.vercel.app/login" size="sm" variant="secondary" target="_blank" rel="noopener noreferrer">
             Log in
           </ButtonLink>
@@ -96,6 +105,15 @@ export function Nav() {
                   </li>
                 ))}
               </ul>
+              <a
+                href="https://www.convoaiservices.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 flex items-center gap-1 text-[0.85rem] font-medium text-ink-soft transition-colors duration-150 hover:text-ink"
+              >
+                Part of Convo
+                <span aria-hidden="true">↗</span>
+              </a>
               <ButtonLink to="https://constructo-topaz.vercel.app/login" size="md" variant="secondary" className="mt-4 w-full" target="_blank" rel="noopener noreferrer">
                 Log in
               </ButtonLink>

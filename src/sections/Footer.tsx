@@ -26,6 +26,7 @@ const columns: { heading: string; links: FooterLink[] }[] = [
   {
     heading: "Company",
     links: [
+      { label: "Part of Convo ↗", to: "https://www.convoaiservices.com", external: true },
       { label: "Contact", to: "mailto:hello@neev.build", external: true },
       { label: "Book a demo", to: "/#book-demo" },
     ],
