@@ -63,7 +63,7 @@ export function Nav() {
             Part of Convo
             <span aria-hidden="true">↗</span>
           </a>
-          <ButtonLink to="https://constructo-topaz.vercel.app/login" size="sm" variant="secondary" target="_blank" rel="noopener noreferrer">
+          <ButtonLink to="https://app.neev.convoaiservices.com/login" size="sm" variant="secondary" target="_blank" rel="noopener noreferrer">
             Log in
           </ButtonLink>
           <ButtonLink to="/#book-demo" size="sm" variant="primary">
@@ -114,7 +114,7 @@ export function Nav() {
                 Part of Convo
                 <span aria-hidden="true">↗</span>
               </a>
-              <ButtonLink to="https://constructo-topaz.vercel.app/login" size="md" variant="secondary" className="mt-4 w-full" target="_blank" rel="noopener noreferrer">
+              <ButtonLink to="https://app.neev.convoaiservices.com/login" size="md" variant="secondary" className="mt-4 w-full" target="_blank" rel="noopener noreferrer">
                 Log in
               </ButtonLink>
               <ButtonLink to="/#book-demo" size="md" variant="primary" className="mt-2 w-full" onClick={close}>
