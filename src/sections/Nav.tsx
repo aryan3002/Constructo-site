@@ -4,11 +4,9 @@ import { ButtonLink, Container, Wordmark } from "../components/ui"
 import { IconClose, IconMenu } from "../components/icons"
 
 const NAV_LINKS = [
-  { label: "Product", to: "/#product" },
-  { label: "Chat", to: "/#in-app-chat" },
   { label: "How it works", to: "/#how-it-works" },
+  { label: "Chat", to: "/#in-app-chat" },
   { label: "For builders", to: "/#for-builders" },
-  { label: "For homeowners", to: "/#for-homeowners" },
   { label: "Pricing", to: "/pricing" },
 ] as const
 
@@ -56,7 +54,7 @@ export function Nav() {
 
         {/* Desktop CTA */}
         <div className="hidden items-center gap-3 lg:flex">
-          <ButtonLink to="https://constructo-topaz.vercel.app" size="sm" variant="secondary" target="_blank" rel="noopener noreferrer">
+          <ButtonLink to="https://constructo-topaz.vercel.app/login" size="sm" variant="secondary" target="_blank" rel="noopener noreferrer">
             Log in
           </ButtonLink>
           <ButtonLink to="/#book-demo" size="sm" variant="primary">
